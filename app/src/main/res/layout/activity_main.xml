@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="323dp"
+        android:layout_height="41dp"
+        android:ems="10"
+        android:hint="Enter your name: "
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.062" />
+
+    <Button
+        android:id="@+id/btnNext1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goNext1"
+        android:text="Next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.893" />
+
+    <TextView
+        android:id="@+id/tV6"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="2"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tV5"
+        app:layout_constraintEnd_toStartOf="@+id/tV5"
+        app:layout_constraintStart_toEndOf="@+id/etHistory"
+        app:layout_constraintTop_toTopOf="@+id/tV5"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/etEzrahot"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:hint="Enter mark:"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/tV7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tV7"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/etTanah"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:hint="Enter mark:"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/tV9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tV9"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tV8"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="2"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tV7"
+        app:layout_constraintEnd_toStartOf="@+id/tV7"
+        app:layout_constraintStart_toEndOf="@+id/etEzrahot"
+        app:layout_constraintTop_toTopOf="@+id/tV7"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tV4"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="2"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tV3"
+        app:layout_constraintEnd_toStartOf="@+id/tV3"
+        app:layout_constraintStart_toEndOf="@+id/etSafrut"
+        app:layout_constraintTop_toTopOf="@+id/tV3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tV7"
+        android:layout_width="87dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="אזרחות"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.488" />
+
+    <TextView
+        android:id="@+id/tV2"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="2"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tV1"
+        app:layout_constraintEnd_toStartOf="@+id/tV1"
+        app:layout_constraintStart_toEndOf="@+id/etLashon"
+        app:layout_constraintTop_toTopOf="@+id/tV1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/etHistory"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:hint="Enter mark:"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/tV5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tV5"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/etLashon"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:hint="Enter mark:"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/tV1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tV2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tV9"
+        android:layout_width="87dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="תנ&quot;ך"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.583" />
+
+    <TextView
+        android:id="@+id/tV10"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="2"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tV9"
+        app:layout_constraintEnd_toStartOf="@+id/tV9"
+        app:layout_constraintStart_toEndOf="@+id/etTanah"
+        app:layout_constraintTop_toTopOf="@+id/tV9"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tV1"
+        android:layout_width="87dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="לשון והבעה"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.204" />
+
+    <TextView
+        android:id="@+id/tV3"
+        android:layout_width="87dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="ספרות"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <EditText
+        android:id="@+id/etSafrut"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:hint="Enter mark:"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/tV3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tV3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tV5"
+        android:layout_width="87dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="היסטוריה"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.397" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
