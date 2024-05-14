@@ -124,7 +124,15 @@ public class BagrutSecondActivity extends AppCompatActivity {
                 gi.putExtra("numEnglish", 5);
                 gi.putExtra("average", average + (gradeEnglish + bonusME5) * 5);
             }
-
+            if (progress == 0) {
+                eTOP1.setVisibility(View.VISIBLE);
+                gradeOP1.setVisibility(View.VISIBLE);
+                tVOP1.setVisibility(View.VISIBLE);
+                eTOP2.setVisibility(View.VISIBLE);
+                gradeOP2.setVisibility(View.VISIBLE);
+                tVOP2.setVisibility(View.VISIBLE);
+            }
+            //else if(progress == 1)
         }
     }
 
