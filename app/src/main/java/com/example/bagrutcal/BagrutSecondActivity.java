@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,9 +16,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class BagrutSecondActivity extends AppCompatActivity {
-    SeekBar seekBar;
+    RadioButton rB6,rB10, rB15;
     TextView tVOP1, tVOP2, tVOP3, mavo, tVMavo;
-    EditText eTNumMath, eTGradeMath, etTNumEnglish, eTGradeEnglish, eTOP1, gradeOP1, eTOP2,gradeOP2, eTOP3, gradeOP3, gradeMavo;
+    EditText eTNumMath, eTGradeMath, etTNumEnglish, eTGradeEnglish, eTOP1, eTGradeOP1, eTOP2, eTGradeOP2, eTOP3, eTGradeOP3, eTGradeMavo;
     int op = 5;
     int mavoYahal = 1;
     int bonusME5 = 30;
@@ -32,17 +33,17 @@ public class BagrutSecondActivity extends AppCompatActivity {
         initViews();
 
         eTOP1.setVisibility(View.INVISIBLE);
-        gradeOP1.setVisibility(View.INVISIBLE);
+        eTGradeOP1.setVisibility(View.INVISIBLE);
         tVOP1.setVisibility(View.INVISIBLE);
         eTOP2.setVisibility(View.INVISIBLE);
-        gradeOP2.setVisibility(View.INVISIBLE);
+        eTGradeOP2.setVisibility(View.INVISIBLE);
         tVOP2.setVisibility(View.INVISIBLE);
         eTOP3.setVisibility(View.INVISIBLE);
-        gradeOP3.setVisibility(View.INVISIBLE);
+        eTGradeOP3.setVisibility(View.INVISIBLE);
         tVOP3.setVisibility(View.INVISIBLE);
         mavo.setVisibility(View.INVISIBLE);
         tVMavo.setVisibility(View.INVISIBLE);
-        gradeMavo.setVisibility(View.INVISIBLE);
+        eTGradeMavo.setVisibility(View.INVISIBLE);
     }
     private void initViews() {
         eTNumMath = (EditText) findViewById(R.id.eTNumMath);
@@ -50,20 +51,22 @@ public class BagrutSecondActivity extends AppCompatActivity {
         etTNumEnglish = (EditText) findViewById(R.id.eTNumEnglish);
         eTGradeEnglish = (EditText) findViewById(R.id.eTGradeEnglish);
 
-        seekBar = (SeekBar) findViewById(R.id.seekBar);
-
         eTOP1 = (EditText) findViewById(R.id.eTOP1);
         tVOP1 = (TextView) findViewById(R.id.tVOP1);
-        gradeOP1 = (EditText) findViewById(R.id.gradeOP1);
+        eTGradeOP1 = (EditText) findViewById(R.id.eTGradeOP1);
         eTOP2 = (EditText) findViewById(R.id.eTOP2);
         tVOP2 = (TextView) findViewById(R.id.tVOP2);
-        gradeOP2 = (EditText) findViewById(R.id.gradeOP2);
+        eTGradeOP2 = (EditText) findViewById(R.id.eTGradeOP2);
         eTOP3 = (EditText) findViewById(R.id.eTOP3);
         tVOP3 = (TextView) findViewById(R.id.tVOP3);
-        gradeOP3 = (EditText) findViewById(R.id.gradeOP3);
+        eTGradeOP3 = (EditText) findViewById(R.id.eTGradeOP3);
         mavo = (TextView) findViewById(R.id.mavo);
-        gradeMavo = (EditText) findViewById(R.id.gradeMavo);
+        eTGradeMavo = (EditText) findViewById(R.id.eTGradeMavo);
         tVMavo = (TextView) findViewById(R.id.tVMavo);
+
+        rB6 = (RadioButton) findViewById(R.id.rB6);
+        rB10 = (RadioButton) findViewById(R.id.rB10);
+        rB15 = (RadioButton) findViewById(R.id.rB15);
     }
 
 
@@ -73,7 +76,6 @@ public class BagrutSecondActivity extends AppCompatActivity {
         String numEnglishStr = etTNumEnglish.getText().toString();
         String gradeEnglishStr = eTGradeEnglish.getText().toString();
 
-        int progress = seekBar.getProgress();
         int numMath = Integer.parseInt(numMathStr);
         int gradeMath = Integer.parseInt(gradeMathStr);
         int numEnglish = Integer.parseInt(numEnglishStr);
@@ -124,17 +126,110 @@ public class BagrutSecondActivity extends AppCompatActivity {
                 gi.putExtra("numEnglish", 5);
                 gi.putExtra("average", average + (gradeEnglish + bonusME5) * 5);
             }
-            if (progress == 0) {
-                eTOP1.setVisibility(View.VISIBLE);
-                gradeOP1.setVisibility(View.VISIBLE);
-                tVOP1.setVisibility(View.VISIBLE);
-                eTOP2.setVisibility(View.VISIBLE);
-                gradeOP2.setVisibility(View.VISIBLE);
-                tVOP2.setVisibility(View.VISIBLE);
+            if (rB15.isChecked()){
+                String OP1Str = eTOP1.getText().toString();
+                String gradeOP1Str = eTGradeOP1.getText().toString();
+                String OP2Str = eTOP2.getText().toString();
+                String gradeOP2Str = eTGradeOP2.getText().toString();
+                String OP3Str = eTOP3.getText().toString();
+                String gradeOP3Str = eTOP3.getText().toString();
+
+                int gradeOP1 = Integer.parseInt(gradeOP1Str);
+                int gradeOP2 = Integer.parseInt(gradeOP2Str);
+                int gradeOP3 = Integer.parseInt(gradeOP3Str);
+
+                if (OP1Str.isEmpty() | gradeOP1Str.isEmpty() | OP2Str.isEmpty() | gradeOP2Str.isEmpty() | OP3Str.isEmpty() | gradeOP3Str.isEmpty())
+                    Toast.makeText(this,"Edit Text empty, you should enter a number", Toast.LENGTH_SHORT);
+                else if (gradeOP1 > 100 | gradeOP2 > 100 | gradeOP3 > 100 | gradeOP1 < 0 | gradeOP2 < 0 | gradeOP3 < 0)
+                    Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT);
+                else{
+
+                }
             }
-            //else if(progress == 1)
+            else if (rB10.isChecked()){
+                String OP2Str = eTOP2.getText().toString();
+                String gradeOP2Str = eTGradeOP2.getText().toString();
+                String OP3Str = eTOP3.getText().toString();
+                String gradeOP3Str = eTOP3.getText().toString();
+
+                int gradeOP2 = Integer.parseInt(gradeOP2Str);
+                int gradeOP3 = Integer.parseInt(gradeOP3Str);
+
+                if (OP2Str.isEmpty() | gradeOP2Str.isEmpty() | OP3Str.isEmpty() | gradeOP3Str.isEmpty())
+                    Toast.makeText(this,"Edit Text empty, you should enter a number", Toast.LENGTH_SHORT);
+                else if (gradeOP2 > 100 | gradeOP3 > 100 | gradeOP2 < 0 | gradeOP3 < 0)
+                    Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT);
+                else{
+
+                }
+            }
+            else if (rB6.isChecked()){
+                String OP3Str = eTOP3.getText().toString();
+                String gradeOP3Str = eTOP3.getText().toString();
+                String gradeMavoStr = eTGradeMavo.getText().toString();
+
+                int gradeOP3 = Integer.parseInt(gradeOP3Str);
+                int gradeMavo = Integer.parseInt(gradeOP3Str);
+
+                if (gradeMavoStr.isEmpty() | OP3Str.isEmpty() | gradeOP3Str.isEmpty())
+                    Toast.makeText(this,"Edit Text empty, you should enter a number", Toast.LENGTH_SHORT);
+                else if (gradeOP3 > 100 | gradeMavo > 100 | gradeOP3 < 0 | gradeMavo < 0)
+                    Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT);
+                else{
+
+                }
+            }
         }
     }
 
     public void goPrev1(View view) {finish();}
+
+
+    public void go15(View view) {
+        eTOP1.setVisibility(View.VISIBLE);
+        eTGradeOP1.setVisibility(View.VISIBLE);
+        tVOP1.setVisibility(View.VISIBLE);
+        eTOP2.setVisibility(View.VISIBLE);
+        eTGradeOP2.setVisibility(View.VISIBLE);
+        tVOP2.setVisibility(View.VISIBLE);
+        eTOP3.setVisibility(View.VISIBLE);
+        eTGradeOP3.setVisibility(View.VISIBLE);
+        tVOP3.setVisibility(View.VISIBLE);
+
+        mavo.setVisibility(View.INVISIBLE);
+        tVMavo.setVisibility(View.INVISIBLE);
+        eTGradeMavo.setVisibility(View.INVISIBLE);
+
+    }
+    public void go10(View view) {
+        eTOP1.setVisibility(View.VISIBLE);
+        eTGradeOP1.setVisibility(View.VISIBLE);
+        tVOP1.setVisibility(View.VISIBLE);
+        eTOP2.setVisibility(View.VISIBLE);
+        eTGradeOP2.setVisibility(View.VISIBLE);
+        tVOP2.setVisibility(View.VISIBLE);
+
+        eTOP3.setVisibility(View.INVISIBLE);
+        eTGradeOP3.setVisibility(View.INVISIBLE);
+        tVOP3.setVisibility(View.INVISIBLE);
+        mavo.setVisibility(View.INVISIBLE);
+        tVMavo.setVisibility(View.INVISIBLE);
+        eTGradeMavo.setVisibility(View.INVISIBLE);
+    }
+
+    public void go6(View view) {
+        eTOP3.setVisibility(View.VISIBLE);
+        eTGradeOP3.setVisibility(View.VISIBLE);
+        tVOP3.setVisibility(View.VISIBLE);
+        mavo.setVisibility(View.VISIBLE);
+        tVMavo.setVisibility(View.VISIBLE);
+        eTGradeMavo.setVisibility(View.VISIBLE);
+
+        eTOP1.setVisibility(View.INVISIBLE);
+        eTGradeOP1.setVisibility(View.INVISIBLE);
+        tVOP1.setVisibility(View.INVISIBLE);
+        eTOP2.setVisibility(View.INVISIBLE);
+        eTGradeOP2.setVisibility(View.INVISIBLE);
+        tVOP2.setVisibility(View.INVISIBLE);
+    }
 }

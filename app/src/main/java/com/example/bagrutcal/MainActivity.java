@@ -55,7 +55,7 @@ Button btnNext1;
         else{
             int average = (lashonGrade* 2 + safrutGrade * 2 + historyGrade * 2 + ezrahotGrade * 2 + tanahGrade * 2)/10;
 
-            Intent si = new Intent(this, BagrutSecondActivity.class); //BagrutLastActivity.class
+            Intent si = new Intent(this, BagrutSecondActivity.class);
             si.putExtra("average", average);
             si.putExtra("name", name);
             si.putExtra("lashonGrade", lashonGrade);
