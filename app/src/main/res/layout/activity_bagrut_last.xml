@@ -7,4 +7,25 @@
     android:layout_height="match_parent"
     tools:context=".BagrutLastActivity">
 
+    <TextView
+        android:id="@+id/tVLast"
+        android:layout_width="189dp"
+        android:layout_height="27dp"
+        android:text="סיכום תעדות בגרות:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <TextView
+        android:id="@+id/summary"
+        android:layout_width="353dp"
+        android:layout_height="403dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.209" />
 </androidx.constraintlayout.widget.ConstraintLayout>

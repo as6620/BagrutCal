@@ -55,16 +55,15 @@ Button btnNext1;
         else{
             int average = (lashonGrade* 2 + safrutGrade * 2 + historyGrade * 2 + ezrahotGrade * 2 + tanahGrade * 2)/10;
 
-            Intent intent = new Intent(this, BagrutSecondActivity.class); //BagrutLastActivity.class
-            intent.putExtra("average", average);
-            intent.putExtra("name", name);
-            intent.putExtra("lashonGrade", lashonGrade);
-            intent.putExtra("safrutGrade", safrutGrade);
-            intent.putExtra("historyGrade", historyGrade);
-            intent.putExtra("ezrahotGrade", ezrahotGrade);
-            intent.putExtra("tanahGrade", tanahGrade);
-            startActivity(intent);
-            finish();
+            Intent si = new Intent(this, BagrutSecondActivity.class); //BagrutLastActivity.class
+            si.putExtra("average", average);
+            si.putExtra("name", name);
+            si.putExtra("lashonGrade", lashonGrade);
+            si.putExtra("safrutGrade", safrutGrade);
+            si.putExtra("historyGrade", historyGrade);
+            si.putExtra("ezrahotGrade", ezrahotGrade);
+            si.putExtra("tanahGrade", tanahGrade);
+            startActivity(si);
         }
     }
 }
