@@ -21,9 +21,6 @@ public class BagrutSecondActivity extends AppCompatActivity {
     EditText eTNumMath, eTGradeMath, etTNumEnglish, eTGradeEnglish, eTOP1, eTGradeOP1, eTOP2, eTGradeOP2, eTOP3, eTGradeOP3, eTGradeMavo;
     int op = 5;
     int mavoYahal = 1;
-    int bonusME5 = 30;
-    int bonusME4 = 15;
-    int bonus5 = 20;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,44 +84,39 @@ public class BagrutSecondActivity extends AppCompatActivity {
         else if (gradeMath < 0 | gradeEnglish < 0 | gradeMath > 100 | gradeEnglish > 100 | numMath >= 3 && numMath <= 5 | numEnglish >= 3 && numEnglish <= 5)
             Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT);
         else{
-            Intent gi = getIntent();
-            String name = gi.getStringExtra("name");
-            int average = gi.getIntExtra("average", 0);
-            int lashonGrade = gi.getIntExtra("lashonGrade", 0);
-            int safrutGrade = gi.getIntExtra("safrutGrade", 0);
-            int historyGrade = gi.getIntExtra("historyGrade", 0);
-            int ezrahotGrade = gi.getIntExtra("ezrahotGrade", 0);
-            int tanahGrade = gi.getIntExtra("tanahGrade", 0);
+            Intent si = new Intent();
+            Intent gi = new Intent(this, BagrutLastActivity.class);
+            gi.putExtra("name", si.getStringExtra("name"));
+            gi.putExtra("average", si.getIntExtra("average", 1));
+            gi.putExtra("lashonGrade", si.getIntExtra("lashonGrade", 1));
+            gi.putExtra("safrutGrade", si.getIntExtra("safrutGrade", 1));
+            gi.putExtra("historyGrade", si.getIntExtra("historyGrade", 1));
+            gi.putExtra("ezrahotGrade", si.getIntExtra("ezrahotGrade", 1));
+            gi.putExtra("tanahGrade", si.getIntExtra("tanahGrade", 1));
 
             if (numMath == 3) {
                 gi.putExtra("gradeMath", gradeMath);
                 gi.putExtra("numMath", 3);
-                gi.putExtra("average", average + gradeMath * 3);
             }
             else if (numMath == 4) {
-                gi.putExtra("gradeMath", gradeMath);
+                gi.putExtra("gradeMath", gradeMath + 15);
                 gi.putExtra("numMath", 4);
-                gi.putExtra("average", average + (gradeMath + bonusME4) * 4);
             }
             else if (numMath == 5) {
-                gi.putExtra("gradeMath", gradeMath);
+                gi.putExtra("gradeMath", gradeMath + 30);
                 gi.putExtra("numMath", 5);
-                gi.putExtra("average", average + (gradeMath + bonusME5) * 5);
             }
             if (numEnglish == 3) {
                 gi.putExtra("gradeEnglish", gradeEnglish);
                 gi.putExtra("numEnglish", 3);
-                gi.putExtra("average", average + gradeEnglish*3);
             }
             else if (numEnglish == 4){
-                gi.putExtra("gradeEnglish", gradeEnglish);
+                gi.putExtra("gradeEnglish", gradeEnglish + 15);
                 gi.putExtra("numEnglish", 4);
-                gi.putExtra("average", average + (gradeEnglish + bonusME4) * 4);
             }
             else if (numEnglish == 5) {
-                gi.putExtra("gradeEnglish", gradeEnglish);
+                gi.putExtra("gradeEnglish", gradeEnglish + 30);
                 gi.putExtra("numEnglish", 5);
-                gi.putExtra("average", average + (gradeEnglish + bonusME5) * 5);
             }
             if (rB15.isChecked()){
                 String OP1Str = eTOP1.getText().toString();
@@ -176,7 +168,7 @@ public class BagrutSecondActivity extends AppCompatActivity {
                 else if (gradeOP3 > 100 | gradeMavo > 100 | gradeOP3 < 0 | gradeMavo < 0)
                     Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT);
                 else{
-
+                    //gi.putExtra("OP3Str", );
                 }
             }
         }
