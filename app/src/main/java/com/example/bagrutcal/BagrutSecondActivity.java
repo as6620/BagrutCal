@@ -73,102 +73,112 @@ public class BagrutSecondActivity extends AppCompatActivity {
         String numEnglishStr = etTNumEnglish.getText().toString();
         String gradeEnglishStr = eTGradeEnglish.getText().toString();
 
-        int numMath = Integer.parseInt(numMathStr);
-        int gradeMath = Integer.parseInt(gradeMathStr);
-        int numEnglish = Integer.parseInt(numEnglishStr);
-        int gradeEnglish = Integer.parseInt(gradeEnglishStr);
-
-
         if (numMathStr.isEmpty() | gradeMathStr.isEmpty() | numEnglishStr.isEmpty() | gradeEnglishStr.isEmpty())
             Toast.makeText(this,"Edit Text empty, you should enter a number", Toast.LENGTH_SHORT);
-        else if (gradeMath < 0 | gradeEnglish < 0 | gradeMath > 100 | gradeEnglish > 100 | numMath >= 3 && numMath <= 5 | numEnglish >= 3 && numEnglish <= 5)
-            Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT);
         else{
-            Intent si = new Intent();
-            Intent gi = new Intent(this, BagrutLastActivity.class);
-            gi.putExtra("name", si.getStringExtra("name"));
-            gi.putExtra("average", si.getIntExtra("average", 1));
-            gi.putExtra("lashonGrade", si.getIntExtra("lashonGrade", 1));
-            gi.putExtra("safrutGrade", si.getIntExtra("safrutGrade", 1));
-            gi.putExtra("historyGrade", si.getIntExtra("historyGrade", 1));
-            gi.putExtra("ezrahotGrade", si.getIntExtra("ezrahotGrade", 1));
-            gi.putExtra("tanahGrade", si.getIntExtra("tanahGrade", 1));
+            int numMath = Integer.parseInt(numMathStr);
+            int gradeMath = Integer.parseInt(gradeMathStr);
+            int numEnglish = Integer.parseInt(numEnglishStr);
+            int gradeEnglish = Integer.parseInt(gradeEnglishStr);
 
-            if (numMath == 3) {
-                gi.putExtra("gradeMath", gradeMath);
-                gi.putExtra("numMath", 3);
-            }
-            else if (numMath == 4) {
-                gi.putExtra("gradeMath", gradeMath + 15);
-                gi.putExtra("numMath", 4);
-            }
-            else if (numMath == 5) {
-                gi.putExtra("gradeMath", gradeMath + 30);
-                gi.putExtra("numMath", 5);
-            }
-            if (numEnglish == 3) {
-                gi.putExtra("gradeEnglish", gradeEnglish);
-                gi.putExtra("numEnglish", 3);
-            }
-            else if (numEnglish == 4){
-                gi.putExtra("gradeEnglish", gradeEnglish + 15);
-                gi.putExtra("numEnglish", 4);
-            }
-            else if (numEnglish == 5) {
-                gi.putExtra("gradeEnglish", gradeEnglish + 30);
-                gi.putExtra("numEnglish", 5);
-            }
-            if (rB15.isChecked()){
-                String OP1Str = eTOP1.getText().toString();
-                String gradeOP1Str = eTGradeOP1.getText().toString();
-                String OP2Str = eTOP2.getText().toString();
-                String gradeOP2Str = eTGradeOP2.getText().toString();
-                String OP3Str = eTOP3.getText().toString();
-                String gradeOP3Str = eTOP3.getText().toString();
+            if (gradeMath < 0 | gradeEnglish < 0 | gradeMath > 100 | gradeEnglish > 100 | numMath >= 3 && numMath <= 5 | numEnglish >= 3 && numEnglish <= 5)
+                Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT);
+            else{
+                Intent si = new Intent();
+                Intent gi = new Intent(this, BagrutLastActivity.class);
+                gi.putExtra("name", si.getStringExtra("name"));
+                gi.putExtra("average", si.getIntExtra("average", 1));
+                gi.putExtra("lashonGrade", si.getIntExtra("lashonGrade", 1));
+                gi.putExtra("safrutGrade", si.getIntExtra("safrutGrade", 1));
+                gi.putExtra("historyGrade", si.getIntExtra("historyGrade", 1));
+                gi.putExtra("ezrahotGrade", si.getIntExtra("ezrahotGrade", 1));
+                gi.putExtra("tanahGrade", si.getIntExtra("tanahGrade", 1));
 
-                int gradeOP1 = Integer.parseInt(gradeOP1Str);
-                int gradeOP2 = Integer.parseInt(gradeOP2Str);
-                int gradeOP3 = Integer.parseInt(gradeOP3Str);
-
-                if (OP1Str.isEmpty() | gradeOP1Str.isEmpty() | OP2Str.isEmpty() | gradeOP2Str.isEmpty() | OP3Str.isEmpty() | gradeOP3Str.isEmpty())
-                    Toast.makeText(this,"Edit Text empty, you should enter a number", Toast.LENGTH_SHORT);
-                else if (gradeOP1 > 100 | gradeOP2 > 100 | gradeOP3 > 100 | gradeOP1 < 0 | gradeOP2 < 0 | gradeOP3 < 0)
-                    Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT);
-                else{
-
+                if (numMath == 3) {
+                    gi.putExtra("gradeMath", gradeMath);
+                    gi.putExtra("numMath", 3);
                 }
-            }
-            else if (rB10.isChecked()){
-                String OP2Str = eTOP2.getText().toString();
-                String gradeOP2Str = eTGradeOP2.getText().toString();
-                String OP3Str = eTOP3.getText().toString();
-                String gradeOP3Str = eTOP3.getText().toString();
-
-                int gradeOP2 = Integer.parseInt(gradeOP2Str);
-                int gradeOP3 = Integer.parseInt(gradeOP3Str);
-
-                if (OP2Str.isEmpty() | gradeOP2Str.isEmpty() | OP3Str.isEmpty() | gradeOP3Str.isEmpty())
-                    Toast.makeText(this,"Edit Text empty, you should enter a number", Toast.LENGTH_SHORT);
-                else if (gradeOP2 > 100 | gradeOP3 > 100 | gradeOP2 < 0 | gradeOP3 < 0)
-                    Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT);
-                else{
-
+                else if (numMath == 4) {
+                    gi.putExtra("gradeMath", gradeMath + 15);
+                    gi.putExtra("numMath", 4);
                 }
-            }
-            else if (rB6.isChecked()){
-                String OP3Str = eTOP3.getText().toString();
-                String gradeOP3Str = eTOP3.getText().toString();
-                String gradeMavoStr = eTGradeMavo.getText().toString();
+                else if (numMath == 5) {
+                    gi.putExtra("gradeMath", gradeMath + 30);
+                    gi.putExtra("numMath", 5);
+                }
+                if (numEnglish == 3) {
+                    gi.putExtra("gradeEnglish", gradeEnglish);
+                    gi.putExtra("numEnglish", 3);
+                }
+                else if (numEnglish == 4){
+                    gi.putExtra("gradeEnglish", gradeEnglish + 15);
+                    gi.putExtra("numEnglish", 4);
+                }
+                else if (numEnglish == 5) {
+                    gi.putExtra("gradeEnglish", gradeEnglish + 30);
+                    gi.putExtra("numEnglish", 5);
+                }
+                if (rB15.isChecked()){
+                    String OP1Str = eTOP1.getText().toString();
+                    String gradeOP1Str = eTGradeOP1.getText().toString();
+                    String OP2Str = eTOP2.getText().toString();
+                    String gradeOP2Str = eTGradeOP2.getText().toString();
+                    String OP3Str = eTOP3.getText().toString();
+                    String gradeOP3Str = eTOP3.getText().toString();
 
-                int gradeOP3 = Integer.parseInt(gradeOP3Str);
-                int gradeMavo = Integer.parseInt(gradeOP3Str);
+                    if (OP1Str.isEmpty() | gradeOP1Str.isEmpty() | OP2Str.isEmpty() | gradeOP2Str.isEmpty() | OP3Str.isEmpty() | gradeOP3Str.isEmpty())
+                        Toast.makeText(this,"Edit Text empty, you should enter a number", Toast.LENGTH_SHORT);
+                    else{
+                        int gradeOP1 = Integer.parseInt(gradeOP1Str);
+                        int gradeOP2 = Integer.parseInt(gradeOP2Str);
+                        int gradeOP3 = Integer.parseInt(gradeOP3Str);
 
-                if (gradeMavoStr.isEmpty() | OP3Str.isEmpty() | gradeOP3Str.isEmpty())
-                    Toast.makeText(this,"Edit Text empty, you should enter a number", Toast.LENGTH_SHORT);
-                else if (gradeOP3 > 100 | gradeMavo > 100 | gradeOP3 < 0 | gradeMavo < 0)
-                    Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT);
-                else{
-                    //gi.putExtra("OP3Str", );
+                        if (gradeOP1 > 100 | gradeOP2 > 100 | gradeOP3 > 100 | gradeOP1 < 0 | gradeOP2 < 0 | gradeOP3 < 0)
+                            Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT);
+                        else{
+
+
+                        }
+                    }
+                }
+                else if (rB10.isChecked()){
+                    String OP2Str = eTOP2.getText().toString();
+                    String gradeOP2Str = eTGradeOP2.getText().toString();
+                    String OP3Str = eTOP3.getText().toString();
+                    String gradeOP3Str = eTOP3.getText().toString();
+
+                    if (OP2Str.isEmpty() | gradeOP2Str.isEmpty() | OP3Str.isEmpty() | gradeOP3Str.isEmpty())
+                        Toast.makeText(this,"Edit Text empty, you should enter a number", Toast.LENGTH_SHORT);
+                    else{
+                        int gradeOP2 = Integer.parseInt(gradeOP2Str);
+                        int gradeOP3 = Integer.parseInt(gradeOP3Str);
+
+                        if (gradeOP2 > 100 | gradeOP3 > 100 | gradeOP2 < 0 | gradeOP3 < 0)
+                            Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT);
+                        else{
+
+
+                        }
+                    }
+                }
+                else if (rB6.isChecked()){
+                    String OP3Str = eTOP3.getText().toString();
+                    String gradeOP3Str = eTOP3.getText().toString();
+                    String gradeMavoStr = eTGradeMavo.getText().toString();
+
+                    if (gradeMavoStr.isEmpty() | OP3Str.isEmpty() | gradeOP3Str.isEmpty())
+                        Toast.makeText(this,"Edit Text empty, you should enter a number", Toast.LENGTH_SHORT);
+                    else{
+                        int gradeOP3 = Integer.parseInt(gradeOP3Str);
+                        int gradeMavo = Integer.parseInt(gradeOP3Str);
+
+                        if (gradeOP3 > 100 | gradeMavo > 100 | gradeOP3 < 0 | gradeMavo < 0)
+                            Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT);
+                        else{
+                            //gi.putExtra("OP3Str", );
+
+                        }
+                    }
                 }
             }
         }

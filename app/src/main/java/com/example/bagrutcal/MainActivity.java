@@ -42,28 +42,30 @@ Button btnNext1;
         String ezrahotStr = etEzrahot.getText().toString();
         String tanahStr = etTanah.getText().toString();
 
-        int lashonGrade = Integer.parseInt(lashonStr);
-        int safrutGrade = Integer.parseInt(safrutStr);
-        int historyGrade = Integer.parseInt(historyStr);
-        int ezrahotGrade = Integer.parseInt(ezrahotStr);
-        int tanahGrade = Integer.parseInt(tanahStr);
-
         if (name.isEmpty() | lashonStr.isEmpty() | safrutStr.isEmpty() | historyStr.isEmpty() | ezrahotStr.isEmpty() | tanahStr.isEmpty())
             Toast.makeText(this,"Edit Text empty, you should enter a number", Toast.LENGTH_SHORT);
-        else if (lashonGrade > 100 | safrutGrade > 100 | historyGrade > 100 | ezrahotGrade > 100 | tanahGrade > 100)
-            Toast.makeText(this, "Grade can't be more than 100!", Toast.LENGTH_SHORT);
         else{
-            int average = (lashonGrade* 2 + safrutGrade * 2 + historyGrade * 2 + ezrahotGrade * 2 + tanahGrade * 2)/10;
+            int lashonGrade = Integer.parseInt(lashonStr);
+            int safrutGrade = Integer.parseInt(safrutStr);
+            int historyGrade = Integer.parseInt(historyStr);
+            int ezrahotGrade = Integer.parseInt(ezrahotStr);
+            int tanahGrade = Integer.parseInt(tanahStr);
 
-            Intent si = new Intent(this, BagrutSecondActivity.class);
-            si.putExtra("average", average);
-            si.putExtra("name", name);
-            si.putExtra("lashonGrade", lashonGrade);
-            si.putExtra("safrutGrade", safrutGrade);
-            si.putExtra("historyGrade", historyGrade);
-            si.putExtra("ezrahotGrade", ezrahotGrade);
-            si.putExtra("tanahGrade", tanahGrade);
-            startActivity(si);
+            if (lashonGrade > 100 | safrutGrade > 100 | historyGrade > 100 | ezrahotGrade > 100 | tanahGrade > 100)
+                Toast.makeText(this, "Grade can't be more than 100!", Toast.LENGTH_SHORT);
+            else {
+                int average = (lashonGrade * 2 + safrutGrade * 2 + historyGrade * 2 + ezrahotGrade * 2 + tanahGrade * 2) / 10;
+
+                Intent si = new Intent(this, BagrutSecondActivity.class);
+                si.putExtra("average", average);
+                si.putExtra("name", name);
+                si.putExtra("lashonGrade", lashonGrade);
+                si.putExtra("safrutGrade", safrutGrade);
+                si.putExtra("historyGrade", historyGrade);
+                si.putExtra("ezrahotGrade", ezrahotGrade);
+                si.putExtra("tanahGrade", tanahGrade);
+                startActivity(si);
+            }
         }
     }
 }
