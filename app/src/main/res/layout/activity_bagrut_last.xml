@@ -9,14 +9,15 @@
 
     <TextView
         android:id="@+id/tVLast"
-        android:layout_width="189dp"
-        android:layout_height="27dp"
-        android:text="סיכום תעדות בגרות:"
+        android:layout_width="391dp"
+        android:layout_height="45dp"
+        android:text="סיכום תעודת בגרות:"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintVertical_bias="0.001" />
 
     <TextView
         android:id="@+id/summary"
@@ -28,4 +29,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.209" />
+
+    <Button
+        android:id="@+id/btnPrev2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goPrev2"
+        android:text="Prev"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.862"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.932" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,8 +19,7 @@ public class BagrutSecondActivity extends AppCompatActivity {
     RadioButton rB6,rB10, rB15;
     TextView tVOP1, tVOP2, tVOP3, mavo, tVMavo;
     EditText eTNumMath, eTGradeMath, etTNumEnglish, eTGradeEnglish, eTOP1, eTGradeOP1, eTOP2, eTGradeOP2, eTOP3, eTGradeOP3, eTGradeMavo;
-    int op = 5;
-    int mavoYahal = 1;
+    String Mavo = "מבוא למדעים";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,24 +67,25 @@ public class BagrutSecondActivity extends AppCompatActivity {
 
 
     public void goNext2(View view) {
+        Intent si = getIntent();
+        Intent gi = new Intent(this, BagrutLastActivity.class);
+
         String numMathStr = eTNumMath.getText().toString();
         String gradeMathStr = eTGradeMath.getText().toString();
         String numEnglishStr = etTNumEnglish.getText().toString();
         String gradeEnglishStr = eTGradeEnglish.getText().toString();
 
         if (numMathStr.isEmpty() | gradeMathStr.isEmpty() | numEnglishStr.isEmpty() | gradeEnglishStr.isEmpty())
-            Toast.makeText(this,"Edit Text empty, you should enter a number", Toast.LENGTH_SHORT);
+            Toast.makeText(this,"Edit Text/s empty", Toast.LENGTH_SHORT).show();
         else{
             int numMath = Integer.parseInt(numMathStr);
             int gradeMath = Integer.parseInt(gradeMathStr);
             int numEnglish = Integer.parseInt(numEnglishStr);
             int gradeEnglish = Integer.parseInt(gradeEnglishStr);
 
-            if (gradeMath < 0 | gradeEnglish < 0 | gradeMath > 100 | gradeEnglish > 100 | numMath >= 3 && numMath <= 5 | numEnglish >= 3 && numEnglish <= 5)
-                Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT);
+            if (gradeMath > 100 | gradeEnglish > 100 | numMath < 3 | numMath > 5 | numEnglish < 3 && numEnglish > 5)
+                Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT).show();
             else{
-                Intent si = new Intent();
-                Intent gi = new Intent(this, BagrutLastActivity.class);
                 gi.putExtra("name", si.getStringExtra("name"));
                 gi.putExtra("average", si.getIntExtra("average", 1));
                 gi.putExtra("lashonGrade", si.getIntExtra("lashonGrade", 1));
@@ -127,17 +127,26 @@ public class BagrutSecondActivity extends AppCompatActivity {
                     String gradeOP3Str = eTOP3.getText().toString();
 
                     if (OP1Str.isEmpty() | gradeOP1Str.isEmpty() | OP2Str.isEmpty() | gradeOP2Str.isEmpty() | OP3Str.isEmpty() | gradeOP3Str.isEmpty())
-                        Toast.makeText(this,"Edit Text empty, you should enter a number", Toast.LENGTH_SHORT);
+                        Toast.makeText(this,"Edit Text/s empty", Toast.LENGTH_SHORT).show();
                     else{
                         int gradeOP1 = Integer.parseInt(gradeOP1Str);
                         int gradeOP2 = Integer.parseInt(gradeOP2Str);
                         int gradeOP3 = Integer.parseInt(gradeOP3Str);
 
-                        if (gradeOP1 > 100 | gradeOP2 > 100 | gradeOP3 > 100 | gradeOP1 < 0 | gradeOP2 < 0 | gradeOP3 < 0)
-                            Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT);
+                        if (gradeOP1 > 100 | gradeOP2 > 100 | gradeOP3 > 100)
+                            Toast.makeText(this,"Grade can't be more than 100!", Toast.LENGTH_SHORT).show();
                         else{
+                            gi.putExtra("OP1Str", OP1Str);
+                            gi.putExtra("yahalOP1", 5);
+                            gi.putExtra("gradeOP1", gradeOP1 + 20);
+                            gi.putExtra("OP2Str", OP2Str);
+                            gi.putExtra("yahalOP2", 5);
+                            gi.putExtra("gradeOP2", gradeOP2 + 20);
+                            gi.putExtra("OP3Str", OP3Str);
+                            gi.putExtra("yahalOP3", 5);
+                            gi.putExtra("gradeOP3", gradeOP3 + 20);
 
-
+                            startActivity(gi);
                         }
                     }
                 }
@@ -148,16 +157,22 @@ public class BagrutSecondActivity extends AppCompatActivity {
                     String gradeOP3Str = eTOP3.getText().toString();
 
                     if (OP2Str.isEmpty() | gradeOP2Str.isEmpty() | OP3Str.isEmpty() | gradeOP3Str.isEmpty())
-                        Toast.makeText(this,"Edit Text empty, you should enter a number", Toast.LENGTH_SHORT);
+                        Toast.makeText(this,"Edit Text/s empty", Toast.LENGTH_SHORT).show();
                     else{
                         int gradeOP2 = Integer.parseInt(gradeOP2Str);
                         int gradeOP3 = Integer.parseInt(gradeOP3Str);
 
-                        if (gradeOP2 > 100 | gradeOP3 > 100 | gradeOP2 < 0 | gradeOP3 < 0)
-                            Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT);
+                        if (gradeOP2 > 100 | gradeOP3 > 100)
+                            Toast.makeText(this,"Grade can't be more than 100!", Toast.LENGTH_SHORT).show();
                         else{
+                            gi.putExtra("OP2Str", OP2Str);
+                            gi.putExtra("yahalOP2", 5);
+                            gi.putExtra("gradeOP2", gradeOP2 + 20);
+                            gi.putExtra("OP3Str", OP3Str);
+                            gi.putExtra("yahalOP3", 5);
+                            gi.putExtra("gradeOP3", gradeOP3 + 20);
 
-
+                            startActivity(gi);
                         }
                     }
                 }
@@ -167,16 +182,23 @@ public class BagrutSecondActivity extends AppCompatActivity {
                     String gradeMavoStr = eTGradeMavo.getText().toString();
 
                     if (gradeMavoStr.isEmpty() | OP3Str.isEmpty() | gradeOP3Str.isEmpty())
-                        Toast.makeText(this,"Edit Text empty, you should enter a number", Toast.LENGTH_SHORT);
+                        Toast.makeText(this,"Edit Text/s empty", Toast.LENGTH_SHORT).show();
                     else{
                         int gradeOP3 = Integer.parseInt(gradeOP3Str);
                         int gradeMavo = Integer.parseInt(gradeOP3Str);
 
-                        if (gradeOP3 > 100 | gradeMavo > 100 | gradeOP3 < 0 | gradeMavo < 0)
+                        if (gradeOP3 > 100 | gradeMavo > 100)
                             Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT);
                         else{
-                            //gi.putExtra("OP3Str", );
+                            gi.putExtra("OP3Str", OP3Str);
+                            gi.putExtra("yahalOP3", 5);
+                            gi.putExtra("gradeOP3", gradeOP3 + 20);
 
+                            gi.putExtra("mavo", Mavo);
+                            gi.putExtra("yahalMavo", 1);
+                            gi.putExtra("gradeMavo", 1);
+
+                            startActivity(gi);
                         }
                     }
                 }

@@ -16,7 +16,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 EditText etName, etLashon, etSafrut, etHistory, etEzrahot, etTanah;
-TextView tV1, tV2, tV3, tV4, tV5, tV6, tV7, tV8, tV9, tV10;
 Button btnNext1;
 
     @Override
@@ -43,7 +42,7 @@ Button btnNext1;
         String tanahStr = etTanah.getText().toString();
 
         if (name.isEmpty() | lashonStr.isEmpty() | safrutStr.isEmpty() | historyStr.isEmpty() | ezrahotStr.isEmpty() | tanahStr.isEmpty())
-            Toast.makeText(this,"Edit Text empty, you should enter a number", Toast.LENGTH_SHORT);
+            Toast.makeText(this,"Edit Text/s empty", Toast.LENGTH_SHORT).show();
         else{
             int lashonGrade = Integer.parseInt(lashonStr);
             int safrutGrade = Integer.parseInt(safrutStr);
@@ -52,7 +51,7 @@ Button btnNext1;
             int tanahGrade = Integer.parseInt(tanahStr);
 
             if (lashonGrade > 100 | safrutGrade > 100 | historyGrade > 100 | ezrahotGrade > 100 | tanahGrade > 100)
-                Toast.makeText(this, "Grade can't be more than 100!", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "Grade can't be more than 100!", Toast.LENGTH_SHORT).show();
             else {
                 int average = (lashonGrade * 2 + safrutGrade * 2 + historyGrade * 2 + ezrahotGrade * 2 + tanahGrade * 2) / 10;
 
