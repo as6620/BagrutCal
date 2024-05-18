@@ -152,6 +152,7 @@ public class BagrutSecondActivity extends AppCompatActivity {
                             gi.putExtra("OP3Str", OP3Str);
                             gi.putExtra("yahalOP3", 5);
                             gi.putExtra("gradeOP3", gradeOP3 + 20);
+                            gi.putExtra("optionMegama", 15);
 
                             startActivity(gi);
                         }
@@ -178,6 +179,7 @@ public class BagrutSecondActivity extends AppCompatActivity {
                             gi.putExtra("OP3Str", OP3Str);
                             gi.putExtra("yahalOP3", 5);
                             gi.putExtra("gradeOP3", gradeOP3 + 20);
+                            gi.putExtra("optionMegama", 10);
 
                             startActivity(gi);
                         }
@@ -200,10 +202,10 @@ public class BagrutSecondActivity extends AppCompatActivity {
                             gi.putExtra("OP3Str", OP3Str);
                             gi.putExtra("yahalOP3", 5);
                             gi.putExtra("gradeOP3", gradeOP3 + 20);
-
                             gi.putExtra("mavo", Mavo);
                             gi.putExtra("yahalMavo", 1);
                             gi.putExtra("gradeMavo", 1);
+                            gi.putExtra("optionMegama", 6);
 
                             startActivity(gi);
                         }
