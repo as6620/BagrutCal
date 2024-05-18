@@ -1,5 +1,7 @@
 package com.example.bagrutcal;
 
+import android.app.Activity;
+import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,14 +11,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-EditText etName, etLashon, etSafrut, etHistory, etEzrahot, etTanah;
-Button btnNext1;
+    EditText etName, etLashon, etSafrut, etHistory, etEzrahot, etTanah;
+    Button btnNext1;
+    final int REQUEST_CODE = 1234;
+    String sgradeMath =  "";
+    String snumMath =  "";
+    String sgradeEnglish =  "";
+    String snumEnglish =  "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +71,25 @@ Button btnNext1;
                 si.putExtra("historyGrade", historyGrade);
                 si.putExtra("ezrahotGrade", ezrahotGrade);
                 si.putExtra("tanahGrade", tanahGrade);
-                startActivity(si);
+
+                si.putExtra("sgradeMath", sgradeMath);
+                si.putExtra("snumMath", snumMath);
+                si.putExtra("sgradeEnglish", sgradeEnglish);
+                si.putExtra("snumEnglish", snumEnglish);
+
+                startActivityForResult(si, REQUEST_CODE);
             }
+        }
+    }
+    @Override
+    protected void onActivityResult(int source, int result, @Nullable Intent data_back) {
+        super.onActivityResult(source, result, data_back);
+        if (source == REQUEST_CODE && result == Activity.RESULT_OK && data_back != null) {
+            snumMath = data_back.getStringExtra("snumMath");
+            sgradeMath = data_back.getStringExtra("sgradeMath");
+            snumEnglish = data_back.getStringExtra("snumEnglish");
+            sgradeEnglish = data_back.getStringExtra("sgradeEnglish");
+
         }
     }
 }

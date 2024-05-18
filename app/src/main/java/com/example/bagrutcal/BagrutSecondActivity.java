@@ -20,6 +20,7 @@ public class BagrutSecondActivity extends AppCompatActivity {
     TextView tVOP1, tVOP2, tVOP3, mavo, tVMavo;
     EditText eTNumMath, eTGradeMath, etTNumEnglish, eTGradeEnglish, eTOP1, eTGradeOP1, eTOP2, eTGradeOP2, eTOP3, eTGradeOP3, eTGradeMavo;
     String Mavo = "מבוא למדעים";
+    Intent si;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,13 @@ public class BagrutSecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bagrut_second);
 
         initViews();
+
+        si = getIntent();
+
+        eTNumMath.setText(si.getStringExtra("snumMath"));
+        eTGradeMath.setText(si.getStringExtra("sgradeMath"));
+        etTNumEnglish.setText(si.getStringExtra("snumEnglish"));
+        eTGradeEnglish.setText(si.getStringExtra("snumEnglish"));
 
         eTOP1.setVisibility(View.INVISIBLE);
         eTGradeOP1.setVisibility(View.INVISIBLE);
@@ -67,7 +75,6 @@ public class BagrutSecondActivity extends AppCompatActivity {
 
 
     public void goNext2(View view) {
-        Intent si = getIntent();
         Intent gi = new Intent(this, BagrutLastActivity.class);
 
         String numMathStr = eTNumMath.getText().toString();
@@ -83,7 +90,7 @@ public class BagrutSecondActivity extends AppCompatActivity {
             int numEnglish = Integer.parseInt(numEnglishStr);
             int gradeEnglish = Integer.parseInt(gradeEnglishStr);
 
-            if (gradeMath > 100 | gradeEnglish > 100 | numMath < 3 | numMath > 5 | numEnglish < 3 && numEnglish > 5)
+            if (gradeMath > 100 | gradeEnglish > 100 | numMath < 3 | numMath > 5 | numEnglish < 3 | numEnglish > 5)
                 Toast.makeText(this,"Invalid input!", Toast.LENGTH_SHORT).show();
             else{
                 gi.putExtra("name", si.getStringExtra("name"));
@@ -206,8 +213,15 @@ public class BagrutSecondActivity extends AppCompatActivity {
         }
     }
 
-    public void goPrev1(View view) {finish();}
+    public void goPrev1(View view) {
+        si.putExtra("sgradeMath", eTGradeMath.getText().toString());
+        si.putExtra("snumMath", eTNumMath.getText().toString());
+        si.putExtra("sgradeEnglish", eTGradeEnglish.getText().toString());
+        si.putExtra("snumEnglish", etTNumEnglish.getText().toString());
 
+        setResult(RESULT_OK, si);
+        finish();
+    }
 
     public void go15(View view) {
         eTOP1.setVisibility(View.VISIBLE);
