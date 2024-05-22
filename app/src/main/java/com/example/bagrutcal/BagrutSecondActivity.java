@@ -21,6 +21,7 @@ public class BagrutSecondActivity extends AppCompatActivity {
     EditText eTNumMath, eTGradeMath, etTNumEnglish, eTGradeEnglish, eTOP1, eTGradeOP1, eTOP2, eTGradeOP2, eTOP3, eTGradeOP3, eTGradeMavo;
     String Mavo = "מבוא למדעים";
     Intent si;
+    Intent gi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +76,7 @@ public class BagrutSecondActivity extends AppCompatActivity {
 
 
     public void goNext2(View view) {
-        Intent gi = new Intent(this, BagrutLastActivity.class);
+        gi = new Intent(this, BagrutLastActivity.class);
 
         String numMathStr = eTNumMath.getText().toString();
         String gradeMathStr = eTGradeMath.getText().toString();
@@ -154,7 +155,6 @@ public class BagrutSecondActivity extends AppCompatActivity {
                             gi.putExtra("gradeOP3", gradeOP3 + 20);
                             gi.putExtra("optionMegama", 15);
 
-                            startActivity(gi);
                         }
                     }
                 }
@@ -181,13 +181,12 @@ public class BagrutSecondActivity extends AppCompatActivity {
                             gi.putExtra("gradeOP3", gradeOP3 + 20);
                             gi.putExtra("optionMegama", 10);
 
-                            startActivity(gi);
                         }
                     }
                 }
                 else if (rB6.isChecked()){
                     String OP3Str = eTOP3.getText().toString();
-                    String gradeOP3Str = eTOP3.getText().toString();
+                    String gradeOP3Str = eTGradeOP3.getText().toString();
                     String gradeMavoStr = eTGradeMavo.getText().toString();
 
                     if (gradeMavoStr.isEmpty() | OP3Str.isEmpty() | gradeOP3Str.isEmpty())
@@ -204,13 +203,13 @@ public class BagrutSecondActivity extends AppCompatActivity {
                             gi.putExtra("gradeOP3", gradeOP3 + 20);
                             gi.putExtra("mavo", Mavo);
                             gi.putExtra("yahalMavo", 1);
-                            gi.putExtra("gradeMavo", 1);
+                            gi.putExtra("gradeMavo", gradeMavo);
                             gi.putExtra("optionMegama", 6);
 
-                            startActivity(gi);
                         }
                     }
                 }
+                startActivity(gi);
             }
         }
     }

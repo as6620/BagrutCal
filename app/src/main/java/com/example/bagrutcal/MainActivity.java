@@ -61,10 +61,7 @@ public class MainActivity extends AppCompatActivity {
             if (lashonGrade > 100 | safrutGrade > 100 | historyGrade > 100 | ezrahotGrade > 100 | tanahGrade > 100)
                 Toast.makeText(this, "Grade can't be more than 100!", Toast.LENGTH_SHORT).show();
             else {
-                int average = (lashonGrade * 2 + safrutGrade * 2 + historyGrade * 2 + ezrahotGrade * 2 + tanahGrade * 2) / 10;
-
                 Intent si = new Intent(this, BagrutSecondActivity.class);
-                si.putExtra("average", average);
                 si.putExtra("name", name);
                 si.putExtra("lashonGrade", lashonGrade);
                 si.putExtra("safrutGrade", safrutGrade);

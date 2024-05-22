@@ -3,17 +3,15 @@ package com.example.bagrutcal;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class BagrutLastActivity extends AppCompatActivity {
-    TextView tVGradeLashon, tVGradeSafrut, tVGradeHistory, tVGradeEzrahot, tVGradeTanah, tVNumMath, tVGradeMath, tVNumEnglish, tVGradeEnglish, tVOp1, tVNumOp1, tVGradeOp1, tVOp2, tVNumOp2, tVGradeOp2, tVOp3, tVNumOp3, tVGradeOp3;
+    TextView tVName, tVGradeLashon, tVGradeSafrut, tVGradeHistory, tVGradeEzrahot, tVGradeTanah, tVNumMath, tVGradeMath, tVNumEnglish, tVGradeEnglish, tVOp1, tVNumOp1, tVGradeOp1, tVOp2, tVNumOp2, tVGradeOp2, tVOp3, tVNumOp3, tVGradeOp3, allAvg;
+    int basicGrades;
+    int sumGrades;
+    int sumPoints;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +20,6 @@ public class BagrutLastActivity extends AppCompatActivity {
         initViews();
         Intent bl = getIntent();
 
-        int average = bl.getIntExtra("average" , 1);
         String name = bl.getStringExtra("name");
         int lashonGrade = bl.getIntExtra("lashonGrade" , 1);
         int safrutGrade = bl.getIntExtra("safrutGrade" , 1);
@@ -52,6 +49,8 @@ public class BagrutLastActivity extends AppCompatActivity {
         int gradeMavo = bl.getIntExtra("gradeMavo" , 1);
 
         int optionMegama = bl.getIntExtra("optionMegama", 1);
+
+        tVName.setText("       Hello " + name+"!");
 
         tVGradeLashon.setText("" + lashonGrade);
         tVGradeSafrut.setText("" + safrutGrade);
@@ -85,6 +84,11 @@ public class BagrutLastActivity extends AppCompatActivity {
             tVOp2.setText("" + OP3Str);
             tVNumOp2.setText("" + yahalOP3);
             tVGradeOp2.setText("" + gradeOP3);
+
+
+            tVOp3.setVisibility(View.GONE);
+            tVNumOp3.setVisibility(View.GONE);
+            tVGradeOp3.setVisibility(View.GONE);
         }
         else{
             tVOp1.setText("" + OP3Str);
@@ -95,11 +99,22 @@ public class BagrutLastActivity extends AppCompatActivity {
             tVNumOp2.setText("" + yahalMavo);
             tVGradeOp2.setText("" + gradeMavo);
 
+
+            tVOp3.setVisibility(View.GONE);
+            tVNumOp3.setVisibility(View.GONE);
+            tVGradeOp3.setVisibility(View.GONE);
         }
+        basicGrades = lashonGrade*2 + safrutGrade*2 + historyGrade*2 + ezrahotGrade*2 + tanahGrade*2;
+        sumGrades = basicGrades + gradeMath*numMath + gradeEnglish*numEnglish + gradeOP1*yahalOP1 + gradeOP2*yahalOP2 + gradeOP3*yahalOP3 + gradeMavo;
+        sumPoints = 10 + yahalOP1 + yahalOP2 + yahalOP3 + gradeMavo;
+
+        allAvg.setText(""+sumGrades/sumPoints);
 
 
     }
     private void initViews() {
+        tVName = (TextView) findViewById(R.id.tVName);
+
         tVGradeLashon = (TextView) findViewById(R.id.tVGradeLashon);
         tVGradeSafrut = (TextView) findViewById(R.id.tVGradeSafrut);
         tVGradeHistory = (TextView) findViewById(R.id.tVGradeHistory);
@@ -120,6 +135,8 @@ public class BagrutLastActivity extends AppCompatActivity {
         tVOp3 = (TextView) findViewById(R.id.tVOp3);
         tVNumOp3 = (TextView) findViewById(R.id.tVNumOp3);
         tVGradeOp3 = (TextView) findViewById(R.id.tVGradeOp3);
+
+        allAvg = (TextView) findViewById(R.id.allAvg);
     }
 
 
