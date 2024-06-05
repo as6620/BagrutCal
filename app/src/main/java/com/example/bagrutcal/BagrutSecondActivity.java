@@ -132,7 +132,7 @@ public class BagrutSecondActivity extends AppCompatActivity {
                     String OP2Str = eTOP2.getText().toString();
                     String gradeOP2Str = eTGradeOP2.getText().toString();
                     String OP3Str = eTOP3.getText().toString();
-                    String gradeOP3Str = eTOP3.getText().toString();
+                    String gradeOP3Str = eTGradeOP3.getText().toString();
 
                     if (OP1Str.isEmpty() | gradeOP1Str.isEmpty() | OP2Str.isEmpty() | gradeOP2Str.isEmpty() | OP3Str.isEmpty() | gradeOP3Str.isEmpty())
                         Toast.makeText(this,"Edit Text/s empty", Toast.LENGTH_SHORT).show();
