@@ -8,10 +8,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class BagrutLastActivity extends AppCompatActivity {
-    TextView tVName, tVGradeLashon, tVGradeSafrut, tVGradeHistory, tVGradeEzrahot, tVGradeTanah, tVNumMath, tVGradeMath, tVNumEnglish, tVGradeEnglish, tVOp1, tVNumOp1, tVGradeOp1, tVOp2, tVNumOp2, tVGradeOp2, tVOp3, tVNumOp3, tVGradeOp3, allAvg;
-    int basicGrades;
-    int sumGrades;
-    int sumPoints;
+    TextView tVName, tVGradeLashon, tVGradeSafrut, tVGradeHistory, tVGradeEzrahot, tVGradeTanah, tVNumMath, tVGradeMath, tVNumEnglish, tVGradeEnglish, tVOp1, tVNumOp1, tVGradeOp1, tVOp2, tVNumOp2, tVGradeOp2, tVOp3, tVNumOp3, tVGradeOp3, allAvg, teV1, teV2, teV3, teV12, teV23, teV13;
+    double  basicGrades;
+    double sumGrades;
+    double sumPoints;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,34 +21,34 @@ public class BagrutLastActivity extends AppCompatActivity {
         Intent bl = getIntent();
 
         String name = bl.getStringExtra("name");
-        int lashonGrade = bl.getIntExtra("lashonGrade" , 1);
-        int safrutGrade = bl.getIntExtra("safrutGrade" , 1);
-        int historyGrade = bl.getIntExtra("historyGrade" , 1);
-        int ezrahotGrade = bl.getIntExtra("ezrahotGrade" , 1);
-        int tanahGrade = bl.getIntExtra("tanahGrade" , 1);
+        int lashonGrade = bl.getIntExtra("lashonGrade" , 0);
+        int safrutGrade = bl.getIntExtra("safrutGrade" , 0);
+        int historyGrade = bl.getIntExtra("historyGrade" , 0);
+        int ezrahotGrade = bl.getIntExtra("ezrahotGrade" , 0);
+        int tanahGrade = bl.getIntExtra("tanahGrade" , 0);
 
-        int gradeMath = bl.getIntExtra("gradeMath" , 1);
-        int numMath = bl.getIntExtra("numMath" , 1);
-        int gradeEnglish = bl.getIntExtra("gradeEnglish" , 1);
-        int numEnglish = bl.getIntExtra("numEnglish" , 1);
+        int gradeMath = bl.getIntExtra("gradeMath" , 0);
+        int numMath = bl.getIntExtra("numMath" , 0);
+        int gradeEnglish = bl.getIntExtra("gradeEnglish" , 0);
+        int numEnglish = bl.getIntExtra("numEnglish" , 0);
 
         String OP1Str = bl.getStringExtra("OP1Str");
-        int yahalOP1 = bl.getIntExtra("yahalOP1" , 1);
-        int gradeOP1 = bl.getIntExtra("gradeOP1" , 1);
+        int yahalOP1 = bl.getIntExtra("yahalOP1" , 0);
+        int gradeOP1 = bl.getIntExtra("gradeOP1" , 0);
 
         String OP2Str = bl.getStringExtra("OP2Str");
-        int yahalOP2 = bl.getIntExtra("yahalOP2" , 1);
-        int gradeOP2 = bl.getIntExtra("gradeOP2" , 1);
+        int yahalOP2 = bl.getIntExtra("yahalOP2" , 0);
+        int gradeOP2 = bl.getIntExtra("gradeOP2" , 0);
 
         String OP3Str = bl.getStringExtra("OP3Str");
-        int yahalOP3 = bl.getIntExtra("yahalOP3" , 1);
-        int gradeOP3 = bl.getIntExtra("gradeOP3" , 1);
+        int yahalOP3 = bl.getIntExtra("yahalOP3" , 0);
+        int gradeOP3 = bl.getIntExtra("gradeOP3" , 0);
 
         String mavo = bl.getStringExtra("mavo");
-        int yahalMavo = bl.getIntExtra("yahalMavo" , 1);
-        int gradeMavo = bl.getIntExtra("gradeMavo" , 1);
+        int yahalMavo = bl.getIntExtra("yahalMavo" , 0);
+        int gradeMavo = bl.getIntExtra("gradeMavo" , 0);
 
-        int optionMegama = bl.getIntExtra("optionMegama", 1);
+        int optionMegama = bl.getIntExtra("optionMegama", 0);
 
         tVName.setText("       Hello " + name+"!");
 
@@ -106,11 +106,41 @@ public class BagrutLastActivity extends AppCompatActivity {
         }
         basicGrades = lashonGrade*2 + safrutGrade*2 + historyGrade*2 + ezrahotGrade*2 + tanahGrade*2;
         sumGrades = basicGrades + gradeMath*numMath + gradeEnglish*numEnglish + gradeOP1*yahalOP1 + gradeOP2*yahalOP2 + gradeOP3*yahalOP3 + gradeMavo;
-        sumPoints = 10 + yahalOP1 + yahalOP2 + yahalOP3 + gradeMavo;
+        sumPoints = 10 + numMath + numEnglish + yahalOP1 + yahalOP2 + yahalOP3;
 
         allAvg.setText(""+sumGrades/sumPoints);
 
+        int avgBasicGrades = lashonGrade*2 + safrutGrade*2 + historyGrade*2 + ezrahotGrade*2 + tanahGrade*2 + gradeMath*numMath + gradeEnglish*numEnglish;
+        int avgBasicPoints = 10 + numMath + numEnglish;
 
+
+        if (optionMegama == 15){
+            //int sumteV1 = (gradeOP1*yahalOP1 + gradeOP2*yahalOP2 + gradeOP3*yahalOP3 + avgBasicGrades)/avgBasicPoints + yahalOP1 + yahalOP2 + yahalOP3;
+            double sumteV1 = (gradeOP1*yahalOP1 + avgBasicGrades)/ (avgBasicPoints + yahalOP1);
+            teV1.setText(""+sumteV1);
+
+            double sumteV2 = (gradeOP2*yahalOP2 + avgBasicGrades)/ (avgBasicPoints + yahalOP2);
+            teV2.setText(""+sumteV2);
+
+            double sumteV3 = (gradeOP3*yahalOP3 + avgBasicGrades)/ (avgBasicPoints + yahalOP3);
+            teV3.setText(""+sumteV3);
+
+            double sumteV12 = (gradeOP1*yahalOP1 + gradeOP2*yahalOP2 + avgBasicGrades)/ (avgBasicPoints + yahalOP1 + yahalOP2);
+            teV12.setText(""+sumteV12);
+
+            double sumteV23 = (gradeOP2*yahalOP2 + gradeOP3*yahalOP3 + avgBasicGrades)/ (avgBasicPoints + yahalOP2 + yahalOP3);
+            teV23.setText(""+sumteV23);
+
+            double sumteV13 = (gradeOP1*yahalOP1 + gradeOP3*yahalOP3 + avgBasicGrades)/ (avgBasicPoints + yahalOP1 + yahalOP3);
+            teV13.setText(""+sumteV13);
+        }
+        else if(optionMegama == 10) {
+            double sumteV2 = (gradeOP2 * yahalOP2 + avgBasicGrades) / (avgBasicPoints + yahalOP2);
+            teV2.setText("" + sumteV2);
+
+            double sumteV3 = (gradeOP3 * yahalOP3 + avgBasicGrades) / (avgBasicPoints + yahalOP3);
+            teV3.setText("" + sumteV3);
+        }
     }
     private void initViews() {
         tVName = (TextView) findViewById(R.id.tVName);
@@ -137,6 +167,13 @@ public class BagrutLastActivity extends AppCompatActivity {
         tVGradeOp3 = (TextView) findViewById(R.id.tVGradeOp3);
 
         allAvg = (TextView) findViewById(R.id.allAvg);
+        teV1 = (TextView) findViewById(R.id.teV1);
+        teV2 = (TextView) findViewById(R.id.teV2);
+        teV3 = (TextView) findViewById(R.id.teV3);
+        teV12 = (TextView) findViewById(R.id.teV12);
+        teV23 = (TextView) findViewById(R.id.teV23);
+        teV13 = (TextView) findViewById(R.id.teV13);
+
     }
 
 
